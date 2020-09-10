@@ -1,8 +1,19 @@
 <resources>
+
+    <!--String utilizadas nos arquivos XML-->
     <string name="app_name">Sofie Android</string>
+    <string name="app_title">Sofie</string>
     <string name="app_tarefa">Tarefa</string>
     <string name="app_email">E-mail.:</string>
     <string name="app_nome_tarefa">Nome da nova tarefa</string>
     <string name="app_descricao_tarefa">Descrição da tarefa</string>
     <string name="app_email_descricao">E-mail: sofie@sofie.com</string>
+
+
+    <!--String screen ActivityListTarefas -->
+    <string name="app_msg_para_sair">Você deseja realmente sair do app?</string>
+    <string name="app_msg_para_sair_sim">não</string>
+    <string name="app_msg_para_sair_nao">sim</string>
+
+
 </resources>

@@ -8,7 +8,7 @@
     tools:context=".ActivitySplashScreen">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolBarTitle"
+        android:id="@+id/toolBarTitleList"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#F25D89"
@@ -27,7 +27,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolBarTitle" />
+        app:layout_constraintTop_toBottomOf="@id/toolBarTitleList" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -41,6 +41,7 @@
         tools:listitem="@layout/list_item_tarefas" />
 
     <Button
+        android:id="@+id/btn_add_nova_tarefa"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="25dp"
@@ -49,7 +50,8 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_style"
         android:text="+"
-        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
