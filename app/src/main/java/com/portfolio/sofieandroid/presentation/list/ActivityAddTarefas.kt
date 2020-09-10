@@ -1,9 +1,8 @@
 package com.portfolio.sofieandroid.presentation.list
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.support.v7.app.AppCompatActivity
 import com.portfolio.sofieandroid.R
 import com.portfolio.sofieandroid.data.model.DataPost
 import com.portfolio.sofieandroid.data.response.RestApiService
@@ -35,10 +34,8 @@ class ActivityAddTarefas : AppCompatActivity() {
         )
 
         apiService.addTarefa(dataPost){
-
         }
         onBackPressed()
-
     }
 
     override fun onBackPressed() {

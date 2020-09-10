@@ -3,7 +3,6 @@ package com.portfolio.sofieandroid.data.response
 import com.portfolio.sofieandroid.data.model.DataPost
 import com.portfolio.sofieandroid.data.model.Tarefas
 import com.portfolio.sofieandroid.data.model.TarefasCriada
-import com.portfolio.sofieandroid.presentation.list.ActivityAddTarefas
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

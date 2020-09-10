@@ -1,8 +1,6 @@
 package com.portfolio.sofieandroid.data.response
 
-import android.provider.Settings.System.getString
 import android.util.Log
-import com.portfolio.sofieandroid.R
 import com.portfolio.sofieandroid.data.model.DataPost
 import com.portfolio.sofieandroid.data.model.TarefasCriada
 import retrofit2.Call

@@ -1,9 +1,9 @@
 package com.portfolio.sofieandroid.presentation.list
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
+import android.os.Bundle
 import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import com.portfolio.sofieandroid.R
 
 
