@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ActivitySplashScreen"
+            android:name=".presentation.list.ActivitySplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +21,10 @@
         </activity>
 
         <activity
-            android:name=".ActivityListTarefas"
+            android:name=".presentation.list.ActivityListTarefas"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ActivityAddTarefas"
+            android:name=".presentation.list.ActivityAddTarefas"
             android:screenOrientation="portrait"></activity>
 
 

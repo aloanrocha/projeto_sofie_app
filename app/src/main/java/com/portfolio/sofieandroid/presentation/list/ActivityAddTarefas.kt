@@ -1,8 +1,9 @@
-package com.portfolio.sofieandroid
+package com.portfolio.sofieandroid.presentation.list
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.portfolio.sofieandroid.R
 
 class ActivityAddTarefas : AppCompatActivity() {
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".ActivitySplashScreen">
+    tools:context=".presentation.list.ActivitySplashScreen">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolBarTitleList"
@@ -21,9 +21,10 @@
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:padding="10dp"
+        android:layout_height="50dp"
         android:text="Tarefas"
+        android:paddingLeft="15dp"
+        android:gravity="start|bottom"
         android:textSize="20sp"
         android:textColor="@color/color_757474"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,10 +32,9 @@
         app:layout_constraintTop_toBottomOf="@id/toolBarTitleList" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerTarefas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +53,6 @@
         android:text="+"
         android:textColor="@android:color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerTarefas"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
