@@ -12,7 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import com.portfolio.sofieandroid.R
 import com.portfolio.sofieandroid.data.model.Tarefas
+import com.portfolio.sofieandroid.data.response.RetrofitInit
 import kotlinx.android.synthetic.main.activity_tarefas.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ActivityListTarefas : AppCompatActivity() {
@@ -26,25 +30,47 @@ class ActivityListTarefas : AppCompatActivity() {
 
         init_components()
         init_action()
-        init_recycler()
+        getTarefasApi()
     }
 
-    private fun init_recycler() {
+    private fun init_recycler(tarefas: List<Tarefas>) {
         with(recyclerTarefas) {
             layoutManager = LinearLayoutManager(this@ActivityListTarefas, RecyclerView.VERTICAL, false)
             setHasFixedSize(true)
-            adapter = ListTarefasAdapter(getTarefas())
+            adapter = ListTarefasAdapter(tarefas)
         }
     }
 
 
+    fun getTarefasApi() {
+        val call = RetrofitInit().getTarefa().listTarefas()
+        call.enqueue(object : Callback<List<Tarefas>?> {
+            override fun onResponse(
+                call: Call<List<Tarefas>?>?,
+                response: Response<List<Tarefas>?>?
+            ) {
+                response?.body()?.let {
+                    val tarefas: List<Tarefas> = it
+                    init_recycler(tarefas)
+                }
+            }
+
+            override fun onFailure(
+                call: Call<List<Tarefas>?>?,
+                t: Throwable?
+            ) {
+            }
+        })
+
+    }
+
     //Caso seja necessario testa com dados mokado
     fun getTarefas(): List<Tarefas> {
         return listOf(
-                Tarefas("1010", "Concluir as tasks do dia", "aloanteste_@gmail.com", "as 11 horas", "Tarefa do Dia")
-                , Tarefas("1011", "Concluir as tasks do dia", "aloanteste_1@gmail.com", "as 11 horas", "Tarefa do Dia")
-                , Tarefas("1012", "Concluir as tasks do dia", "aloanteste_2@gmail.com", "as 11 horas", "Tarefa do Dia")
-                , Tarefas("1013", "Concluir as tasks do dia", "aloanteste_3@gmail.com", "as 11 horas", "Tarefa do Dia")
+            Tarefas("1010", "Concluir as tasks do dia", "aloanteste_@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Tarefas("1011", "Concluir as tasks do dia", "aloanteste_1@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Tarefas("1012", "Concluir as tasks do dia", "aloanteste_2@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Tarefas("1013", "Concluir as tasks do dia", "aloanteste_3@gmail.com", "as 11 horas", "Tarefa do Dia")
         )
     }
 
@@ -88,7 +114,7 @@ class ActivityListTarefas : AppCompatActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setMessage(getString(R.string.app_msg_para_sair))
-                .setPositiveButton(getString(R.string.app_msg_para_sair_nao), dialogClickListener)
-                .setNegativeButton(getString(R.string.app_msg_para_sair_sim), dialogClickListener).show()
+            .setPositiveButton(getString(R.string.app_msg_para_sair_nao), dialogClickListener)
+            .setNegativeButton(getString(R.string.app_msg_para_sair_sim), dialogClickListener).show()
     }
 }
