@@ -20,6 +20,7 @@
 
 
     <ImageButton
+            android:id="@+id/btn_cancelar"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="15dp"
@@ -31,6 +32,7 @@
         app:layout_constraintTop_toTopOf="@id/toolBarTitle" />
 
     <ImageButton
+            android:id="@+id/btn_salvar"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginRight="15dp"

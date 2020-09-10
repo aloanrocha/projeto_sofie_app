@@ -8,7 +8,10 @@
     <string name="app_nome_tarefa">Nome da nova tarefa</string>
     <string name="app_descricao_tarefa">Descrição da tarefa</string>
     <string name="app_email_descricao">E-mail: sofie@sofie.com</string>
+    <string name="app_erro">"onFailure error"</string>
 
+    <!--String screen ActivityListTarefas -->
+    <string name="app_tarefa_salva">Urrull sua tarefa foi salva com sucesso</string>
 
     <!--String screen ActivityListTarefas -->
     <string name="app_msg_para_sair">Você deseja realmente sair do app?</string>

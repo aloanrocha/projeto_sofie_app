@@ -61,7 +61,7 @@ class ActivityListTarefas : AppCompatActivity() {
                 call: Call<Tarefas>,
                 t: Throwable?
             ) {
-                Log.e("onFailure error", t?.message)
+                Log.e(getString(R.string.app_erro), t?.message)
             }
         })
 
