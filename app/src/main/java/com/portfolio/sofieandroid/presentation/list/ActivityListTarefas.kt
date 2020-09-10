@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.portfolio.sofieandroid.R
+import com.portfolio.sofieandroid.data.model.Data
 import com.portfolio.sofieandroid.data.model.Tarefas
 import com.portfolio.sofieandroid.data.response.RetrofitInit
 import kotlinx.android.synthetic.main.activity_tarefas.*
@@ -33,44 +35,45 @@ class ActivityListTarefas : AppCompatActivity() {
         getTarefasApi()
     }
 
-    private fun init_recycler(tarefas: List<Tarefas>) {
+    private fun init_recycler(tarefasList: Tarefas) {
         with(recyclerTarefas) {
             layoutManager = LinearLayoutManager(this@ActivityListTarefas, RecyclerView.VERTICAL, false)
             setHasFixedSize(true)
-            adapter = ListTarefasAdapter(tarefas)
+            adapter = ListTarefasAdapter(tarefasList)
         }
     }
 
 
     fun getTarefasApi() {
         val call = RetrofitInit().getTarefa().listTarefas()
-        call.enqueue(object : Callback<List<Tarefas>?> {
+        call.enqueue(object : Callback<Tarefas> {
             override fun onResponse(
-                call: Call<List<Tarefas>?>?,
-                response: Response<List<Tarefas>?>?
+                call: Call<Tarefas>,
+                response: Response<Tarefas>
             ) {
                 response?.body()?.let {
-                    val tarefas: List<Tarefas> = it
+                    val tarefas: Tarefas = it
                     init_recycler(tarefas)
                 }
             }
 
             override fun onFailure(
-                call: Call<List<Tarefas>?>?,
+                call: Call<Tarefas>,
                 t: Throwable?
             ) {
+                Log.e("onFailure error", t?.message)
             }
         })
 
     }
 
     //Caso seja necessario testa com dados mokado
-    fun getTarefas(): List<Tarefas> {
+    fun getTarefas(): List<Data> {
         return listOf(
-            Tarefas("1010", "Concluir as tasks do dia", "aloanteste_@gmail.com", "as 11 horas", "Tarefa do Dia")
-            , Tarefas("1011", "Concluir as tasks do dia", "aloanteste_1@gmail.com", "as 11 horas", "Tarefa do Dia")
-            , Tarefas("1012", "Concluir as tasks do dia", "aloanteste_2@gmail.com", "as 11 horas", "Tarefa do Dia")
-            , Tarefas("1013", "Concluir as tasks do dia", "aloanteste_3@gmail.com", "as 11 horas", "Tarefa do Dia")
+            Data("1010", "Concluir as tasks do dia", "aloanteste_@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Data("1011", "Concluir as tasks do dia", "aloanteste_1@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Data("1012", "Concluir as tasks do dia", "aloanteste_2@gmail.com", "as 11 horas", "Tarefa do Dia")
+            , Data("1013", "Concluir as tasks do dia", "aloanteste_3@gmail.com", "as 11 horas", "Tarefa do Dia")
         )
     }
 

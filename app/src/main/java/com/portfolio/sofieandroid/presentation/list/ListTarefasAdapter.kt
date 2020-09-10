@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.portfolio.sofieandroid.R
+import com.portfolio.sofieandroid.data.model.Data
 import com.portfolio.sofieandroid.data.model.Tarefas
 import kotlinx.android.synthetic.main.list_item_tarefas.view.*
 
 class ListTarefasAdapter(
-        val listTarefas: List<Tarefas>
+        val listTarefas: Tarefas
 ) : RecyclerView.Adapter<ListTarefasAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, view: Int): ListViewHolder {
@@ -17,10 +18,10 @@ class ListTarefasAdapter(
         return ListViewHolder(itemView)
     }
 
-    override fun getItemCount() = listTarefas.count()
+    override fun getItemCount(): Int = listTarefas.tarefas?.count()!!
 
     override fun onBindViewHolder(viewHolder: ListViewHolder, position: Int) {
-        viewHolder.bindView(listTarefas[position])
+        viewHolder.bindView(listTarefas.tarefas?.get(position))
     }
 
 
@@ -29,9 +30,13 @@ class ListTarefasAdapter(
         private val title = itemView.txt_title_tarefa
         private val email = itemView.txt_email_tarefa
 
-        fun bindView(tarefa: Tarefas) {
-            title.text = tarefa.title
-            email.text = tarefa.email
+        fun bindView(tarefa: Data?) {
+            if (tarefa != null) {
+                title.text = tarefa.title
+            }
+            if (tarefa != null) {
+                email.text = tarefa.email
+            }
         }
     }
 }
