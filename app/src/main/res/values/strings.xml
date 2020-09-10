@@ -4,4 +4,5 @@
     <string name="app_email">E-mail.:</string>
     <string name="app_nome_tarefa">Nome da nova tarefa</string>
     <string name="app_descricao_tarefa">Descrição da tarefa</string>
+    <string name="app_email_descricao">E-mail: sofie@sofie.com</string>
 </resources>
